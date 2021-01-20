@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.strikeThrough {
+  text-decoration: line-through;
+}
+.show {
+  text-decoration: none;
+}
+
+/* body {
+  background-color: green;
+} */
+
+#message {
+  margin: auto;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}

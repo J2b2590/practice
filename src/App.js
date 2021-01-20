@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import Counter from "./components/Counter";
+import Message from "./components/Message";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0,
+      message: "",
+    };
+  }
+
+  // interval = undefined;
+
+  // componentDidMount() {
+  //   let interval = setInterval(this.increment, 1000);
+  // }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
+
+  addMessage = (newMessage) => {
+    console.log(newMessage, "newMessage");
+    let updateMessages = [...this.state.message, newMessage];
+
+    this.setState({
+      message: updateMessages,
+    });
+  };
+
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1,
+    });
+  };
+
+  decrease = () => {
+    this.setState({
+      counter: this.state.counter - 1,
+    });
+  };
+
+  reset = () => {
+    this.setState({
+      counter: 0,
+    });
+  };
+
+  upTwo = () => {
+    this.setState({
+      counter: this.state.counter + 2,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Counter
+          counter={this.state.counter}
+          increment={this.increment}
+          minus={this.decrease}
+          reset={this.reset}
+          upTwo={this.upTwo}
+        />
+        <Message message={this.state.message} addMessage={this.addMessage} />
+      </div>
+    );
+  }
 }
 
 export default App;
