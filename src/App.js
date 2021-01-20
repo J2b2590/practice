@@ -13,6 +13,11 @@ class App extends Component {
     };
   }
 
+  editMessageFunc = (message) => {
+    let allMessages = this.state.message;
+    console.log(allMessages, "edit message");
+  };
+
   // interval = undefined;
 
   // componentDidMount() {
@@ -66,7 +71,11 @@ class App extends Component {
           reset={this.reset}
           upTwo={this.upTwo}
         />
-        <Message message={this.state.message} addMessage={this.addMessage} />
+        <Message
+          message={this.state.message}
+          addMessage={this.addMessage}
+          editMessageFunc={this.editMessageFunc}
+        />
       </div>
     );
   }

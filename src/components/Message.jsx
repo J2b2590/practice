@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import EditMessage from "./EditMessage";
 
 class Message extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class Message extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.props.message, "messages");
     const css = this.state.active;
     return (
       <div>
@@ -63,6 +64,8 @@ class Message extends Component {
                     {messages}
                   </h4>
                   <button onClick={this.handleToggle}>X</button>
+
+                  <EditMessage id={messages.id} messages={messages} />
                 </div>
               );
             })
